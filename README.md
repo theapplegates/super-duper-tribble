@@ -1,4 +1,25 @@
+<p align="center">
+  <img alt="React Notion X" src="https://raw.githubusercontent.com/NotionX/react-notion-x/master/media/notion-ts.png" width="689">
+</p>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Intro
+
+This is a more full-featured Next.js example project using `react-notion-x`, with the most important code in [`pages/[pageId].tsx`](./examples/full/pages/%5BpageId%5D.tsx) and [`components/NotionPage.tsx`](./components/NotionPage.tsx). You can view this example [live on Vercel](https://react-notion-x-demo.transitivebullsh.it).
+
+Config can be found in [`lib/config.ts`](./lib/config.ts)
+
+This demo adds a few nice features:
+
+- Uses [next/image](https://nextjs.org/docs/api-reference/next/image) to serve optimal images
+- Uses preview images generated using [lqip-modern](https://github.com/transitive-bullshit/lqip-modern)
+- Embeds tweets via [react-static-tweets](https://github.com/transitive-bullshit/react-static-tweets)
+- Includes larger optional components via [next/dynamic](https://nextjs.org/docs/advanced-features/dynamic-import)
+  - Collection, CollectionRow
+  - Code
+  - Equation
+  - Pdf
 
 ## Getting Started
 
@@ -14,21 +35,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Preview Images
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This demo uses [next/image](https://nextjs.org/docs/api-reference/next/image) as a custom image component. It also generates preview images at page build time using [lqip-modern](https://github.com/transitive-bullshit/lqip-modern).
 
-## Learn More
+Note that preview image generation can be very slow, so it's recommended that you either cache the results in a key-value database or disable it by setting `previewImagesEnabled` to `false` in [`lib/config.ts`](./lib/config.ts)
 
-To learn more about Next.js, take a look at the following resources:
+Note that custom images will only be enabled if either the image has a valid preview image defined for its URL, or if you set `forceCustomImages` to `true`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+MIT © [Travis Fischer](https://transitivebullsh.it)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Support my OSS work by <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
